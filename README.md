@@ -150,14 +150,4 @@ Author & Contact
 - Contact: your-23amtics404@gmail.com
 - For academic use / college project
 
-License
-- This repository does not include a formal license file. Add a LICENSE file if you want to permit reuse (MIT, Apache 2.0, etc.).
 
----
-
-If you’d like, I can:
-- update the repository README with this content (I can prepare a commit),
-- add a short CONTRIBUTING.md and LICENSE,
-- or generate a sample appsettings.Development.json for local setup.
-
-Tell me which of those you'd like me to do next and I’ll prepare the files.
