@@ -270,22 +270,6 @@ Always change seeded credentials before publishing or demoing publicly.
 
 ---
 
-## Running with Docker (SQL Server container example)
-
-If you prefer running SQL Server in Docker, here is a minimal `docker-compose.yml` snippet:
-
-```yaml
-version: '3.8'
-services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    environment:
-      - SA_PASSWORD=YourStrong!Passw0rd
-      - ACCEPT_EULA=Y
-    ports:
-      - "1433:1433"
-    restart: always
-```
 
 Update your connection string to point to the Docker host (from the app container use `sqlserver` as host):
 ```
