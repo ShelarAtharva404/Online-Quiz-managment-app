@@ -115,15 +115,7 @@ Default Accounts & Roles
     Email: student@example.com
     Password: Student@123
 
-Project Structure
-QuizPortal/
-├── Controllers/      — MVC controllers and endpoints
-├── Models/           — Entity models and DTOs
-├── Views/            — Razor Views (UI)
-├── Data/             — ApplicationDbContext and seeders
-├── Migrations/       — EF Core generated migrations
-├── wwwroot/          — Static assets (CSS, JS, images)
-└── appsettings.json  — Configuration including DB connection string
+
 
 Common Commands & Troubleshooting
 - dotnet run — runs the app
