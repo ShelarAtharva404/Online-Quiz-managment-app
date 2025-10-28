@@ -1,0 +1,78 @@
+﻿@model QuizPortal.Models.Dtos.UserDto
+@{
+    ViewData["Title"] = "Login";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 420px; border: none;">
+        <div class="text-center mb-4">
+            <img src="~/images/6681204 (1).png" alt="Login" width="70" class="mb-2" />
+            <h3 class="fw-bold text-primary">Welcome Back</h3>
+            <p class="text-muted">Login to continue to Quiz Portal</p>
+        </div>
+
+        <form id="loginForm" method="post" asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-2"></div>
+
+            <!-- Username -->
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label fw-semibold"></label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                    <input asp-for="Username" class="form-control" placeholder="Enter your username" />
+                </div>
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label fw-semibold"></label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-lock"></i></span>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Enter your password" />
+                </div>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <!-- Role Selector -->
+            <div class="mb-3">
+                <label asp-for="Role" class="form-label fw-semibold">Select Role</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-person-badge"></i></span>
+                    <select asp-for="Role" class="form-select">
+                        <option value="">-- Select Role --</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Student">Student</option>
+                    </select>
+                </div>
+                <span asp-validation-for="Role" class="text-danger small"></span>
+            </div>
+
+            <!-- Remember Me & Forgot -->
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label small text-muted" for="rememberMe">Remember me</label>
+                </div>
+                <a href="#" class="text-decoration-none small text-primary">Forgot password?</a>
+            </div>
+
+            <!-- Submit -->
+            <button type="button" onclick="Login();" class="btn btn-primary w-100 py-2 fw-semibold">
+                <i class="bi bi-box-arrow-in-right"></i> Login
+            </button>
+
+            <div class="text-center mt-3">
+                <p class="small text-muted mb-0">
+                    Don’t have an account?
+                    <a href="/User/Register" class="text-primary fw-semibold text-decoration-none">Register</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/User.js"></script>
+}

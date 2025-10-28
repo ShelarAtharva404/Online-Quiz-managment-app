@@ -1,0 +1,29 @@
+@model IEnumerable<QuizPortal.Models.Score>
+
+@{
+    ViewData["Title"] = "Student Scores";
+}
+
+<h2>📊 Student Scores</h2>
+
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Student Name</th>
+            <th>Quiz Title</th>
+            <th>Score (%)</th>
+            <th>Submitted At</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Student?.Username</td>
+                <td>@s.Quiz?.Title</td>
+                <td>@s.Percentage</td>
+                <td>@s.SubmittedAt.ToLocalTime().ToString("g")</td>
+            </tr>
+        }
+    </tbody>
+</table>

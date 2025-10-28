@@ -1,0 +1,60 @@
+﻿@model QuizPortal.Models.Dtos.UserDto
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg p-4 rounded-4" style="width: 440px; border: none;">
+        <div class="text-center mb-4">
+            <img src="~/images/registration-1.png" alt="Register" width="70" class="mb-2" />
+            <h3 class="fw-bold text-success">Create Your Account</h3>
+            <p class="text-muted">Join the Quiz Portal today!</p>
+        </div>
+
+        <form id="registerForm" method="post" asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger text-center mb-2"></div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label fw-semibold"></label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-person"></i></span>
+                    <input asp-for="Username" class="form-control" placeholder="Choose a username" />
+                </div>
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label fw-semibold"></label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-lock"></i></span>
+                    <input asp-for="Password" type="password" class="form-control" placeholder="Create a password" />
+                </div>
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label fw-semibold">Confirm Password</label>
+                <div class="input-group">
+                    <span class="input-group-text bg-white"><i class="bi bi-lock-fill"></i></span>
+                    <input id="confirmPassword" type="password" class="form-control" placeholder="Re-enter your password" />
+                </div>
+            </div>
+
+            <button type="button" onclick="Register();" class="btn btn-success w-100 py-2 fw-semibold">
+                <i class="bi bi-person-plus"></i> Register
+            </button>
+
+            <div class="text-center mt-3">
+                <p class="small text-muted mb-0">
+                    Already have an account?
+                    <a href="/User/Login" class="text-success fw-semibold text-decoration-none">Login</a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/User.js"></script>
+}

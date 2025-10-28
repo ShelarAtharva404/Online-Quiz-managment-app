@@ -1,0 +1,64 @@
+@model QuizPortal.Models.Dtos.UserDto
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<div class="container mt-4" style="max-width:540px">
+    <div class="card shadow-sm p-4">
+        <h4 class="mb-3">Add Student</h4>
+
+        <form id="addStudentForm">
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">Username</label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger small"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Password</label>
+                <input asp-for="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger small"></span>
+            </div>
+
+            <button id="addStudentBtn" type="button" class="btn btn-success w-100">Add Student</button>
+        </form>
+
+        <div id="result" class="mt-3"></div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $('#addStudentBtn').on('click', function () {
+            $('#result').html('');
+            $.ajax({
+                url: '@Url.Action("AddStudent", "User")',
+                type: 'POST',
+                data: $('#addStudentForm').serialize(),
+                success: function (res) {
+                    if (res.success) {
+                        $('#result').html('<div class="alert alert-success">' + res.message + '</div>');
+                        $('#addStudentForm')[0].reset();
+                    } else {
+                        let html = '<div class="alert alert-danger"><strong>' + res.message + '</strong>';
+                        if (res.details) {
+                            html += '<ul>';
+                            res.details.forEach(function (d) {
+                                html += '<li><strong>' + d.Field + ':</strong> ' + d.Errors.join(', ') + '</li>';
+                            });
+                            html += '</ul>';
+                        }
+                        html += (res.exception ? '<div>' + res.exception + '</div>' : '') + '</div>';
+                        $('#result').html(html);
+                        console.log(res);
+                    }
+                },
+                error: function (xhr) {
+                    $('#result').html('<div class="alert alert-danger">Unexpected error. See console.</div>');
+                    console.error(xhr);
+                }
+            });
+        });
+    </script>
+}

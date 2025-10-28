@@ -1,0 +1,228 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Quiz Portal</title>
+
+    <!-- External Libraries -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* ======== PAGE LAYOUT FIX ======== */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+
+        main {
+            flex: 1 0 auto;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ======== NAVBAR ANIMATION ======== */
+        .navbar-custom {
+            background: linear-gradient(270deg, #007bff, #00c6ff, #007bff);
+            background-size: 400% 400%;
+            animation: gradientShift 10s ease infinite;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        @@keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #fff !important;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            margin-right: 15px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #ffd54f !important;
+            transform: scale(1.1);
+            text-shadow: 0 0 6px rgba(255, 213, 79, 0.8);
+        }
+
+        /* ======== FOOTER FIX ======== */
+        footer.footer {
+            flex-shrink: 0;
+            background: #0d1117;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 15px 0;
+            border-top: 3px solid #007bff;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+        }
+
+        footer.footer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 200%;
+            height: 2px;
+            background: linear-gradient(90deg, #00c6ff, #007bff, #00c6ff);
+            animation: footerLine 6s linear infinite;
+        }
+
+        @@keyframes footerLine {
+            0% { left: -100%; }
+            50% { left: 0%; }
+            100% { left: -100%; }
+        }
+
+        footer.footer strong {
+            color: #FFD54F;
+        }
+
+        @@media (max-width: 576px) {
+            .navbar-brand {
+                font-size: 1.2rem;
+            }
+            .nav-link {
+                margin-right: 0;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    ⚡ Quiz Portal
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                        aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul id="leftNav" class="navbar-nav me-auto">
+                       @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") != null)
+{
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+
+    @if (userRole == "Professor")
+    {
+        <li class="nav-item">
+        <a class="nav-link" asp-controller="Student" asp-action="Manage">
+            <i class="bi bi-people"></i> Manage Students
+        </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Quiz" asp-action="CreateQuiz">
+                <i class="bi bi-plus-circle"></i> Create Quiz
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Quiz" asp-action="Index">
+                <i class="bi bi-list-task"></i> Quizzes
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="User" asp-action="AddStudent">
+                <i class="bi bi-person-plus"></i> Add Student
+            </a>
+        </li>
+        <li class="nav-item">
+    <a class="nav-link" asp-controller="Scores" asp-action="Index">Scores</a>
+</li>
+
+    }
+    else if (userRole == "Student")
+    {
+        <li class="nav-item">
+            <a class="nav-link" asp-controller="Student" asp-action="Queries">
+                <i class="bi bi-question-circle"></i> Queries
+            </a>
+        </li>
+    }
+}
+
+
+                    <ul id="rightNav" class="navbar-nav">
+                        @if (HttpContextAccessor.HttpContext.Session.GetString("SessionUserId") == null)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="User" asp-action="Register">
+                                    <i class="bi bi-person-plus"></i> Register
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="User" asp-action="Login">
+                                    <i class="bi bi-box-arrow-in-right"></i> Login
+                                </a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="User" asp-action="Logout">
+                                    <i class="bi bi-box-arrow-right"></i> Logout
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container my-4">
+        @RenderBody()
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            &copy; @DateTime.Now.Year - <strong>Quiz Portal</strong> | Designed by <strong>Atharva Shelar</strong>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

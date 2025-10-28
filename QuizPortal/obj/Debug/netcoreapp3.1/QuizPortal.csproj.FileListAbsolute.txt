@@ -1,0 +1,9 @@
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.csproj.AssemblyReference.cache
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.AssemblyInfoInputs.cache
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.AssemblyInfo.cs
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.csproj.CoreCompileInputs.cache
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.RazorAssemblyInfo.cache
+C:\Users\HELIOS NEO 16\Downloads\dotnetcore--quiz-portal-master\dotnetcore--quiz-portal-master\QuizPortal\obj\Debug\netcoreapp3.1\QuizPortal.RazorAssemblyInfo.cs
