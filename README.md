@@ -4,7 +4,6 @@ Quiz Portal is a web-based application built using ASP.NET Core MVC and Entity F
 It demonstrates CRUD operations, authentication, AJAX DataTables, and SQL Server database integration.
 ________________________________________
 🚀 Features
-
 🧑‍🏫 Professor Dashboard – Create and manage quizzes
 🎓 Student Dashboard – Take quizzes and view scores
 📊 Results Management – Auto-calculate and store scores
