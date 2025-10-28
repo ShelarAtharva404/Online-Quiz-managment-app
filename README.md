@@ -5,11 +5,11 @@ It demonstrates CRUD operations, authentication, AJAX DataTables, and SQL Server
 ________________________________________
 🚀 Features
 
-•	🧑‍🏫 Professor Dashboard – Create and manage quizzes
-•	🎓 Student Dashboard – Take quizzes and view scores
-•	📊 Results Management – Auto-calculate and store scores
-•	💾 Entity Framework Core (Code-First)
-•	⚙️ ASP.NET Core MVC architecture
+🧑‍🏫 Professor Dashboard – Create and manage quizzes
+🎓 Student Dashboard – Take quizzes and view scores
+📊 Results Management – Auto-calculate and store scores
+💾 Entity Framework Core (Code-First)
+⚙️ ASP.NET Core MVC architecture
 ________________________________________
 🧰 Technologies Used
 Component---Version	Description
