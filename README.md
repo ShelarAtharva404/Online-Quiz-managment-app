@@ -1,45 +1,56 @@
-```markdown
 # Quiz Portal — ASP.NET Core MVC
 
-A lightweight online quiz management system built with ASP.NET Core MVC and Entity Framework Core. This README expands the installation and EF Core workflow with step‑by‑step commands, explanations, and troubleshooting so you (or other students) can set the project up reliably in different environments.
+A simple, extensible online quiz management application built with ASP.NET Core MVC and Entity Framework Core. This project is intended for academic/demo use and demonstrates user roles (Professor/Admin and Student), CRUD for quizzes and questions, quiz-taking workflows, automatic scoring, and basic result management.
 
 ---
 
-## Table of contents
-- Overview
-- Prerequisites
-- Installation — step by step
-- Configuration (appsettings and secrets)
-- Entity Framework Core: commands explained
-- Common EF scenarios (migrations, rollback, script)
-- Running with Docker (SQL Server)
-- Troubleshooting & common fixes
-- Default accounts & seeding
-- Project structure
-- Author & license
+Table of contents
+- [Demo & Purpose](#demo--purpose)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Configuration](#configuration)
+- [Database & Migrations (EF Core)](#database--migrations-ef-core)
+- [Default Accounts & Roles](#default-accounts--roles)
+- [Project Structure](#project-structure)
+- [Common Commands & Troubleshooting](#common-commands--troubleshooting)
+- [Contributing](#contributing)
+- [License & Author](#license--author)
 
 ---
 
-## Overview
-Quiz Portal provides:
-- Professor/Admin UI: create, edit, publish quizzes and questions
-- Student UI: register/login, take quizzes, view scores
-- Automatic scoring and persistent results
-- Code-first EF Core with SQL Server and Razor views + Bootstrap UI
+Demo & Purpose
+- Purpose: Provide a lightweight example of a quiz system where instructors can create quizzes and students can take them and see results.
+- Use cases: college project, learning how to use ASP.NET Core MVC + EF Core, prototyping quiz features.
 
----
+Key Features
+- Professor/Admin dashboard to create, edit, and delete:
+  - Quizzes
+  - Questions (multiple choice)
+  - Quiz assignment/publishing
+- Student dashboard to:
+  - Register / Login
+  - Browse available quizzes
+  - Take timed quizzes
+  - View immediate score and history
+- Automatic scoring and result storage
+- Authentication and role-based authorization
+- Uses Entity Framework Core (Code-First) with SQL Server
+- Responsive UI with Razor Views and Bootstrap
 
-## Prerequisites
-- .NET 8 SDK (recommended). Verify with:
-```
-dotnet --version
-```
-- SQL Server / LocalDB / SQL Express, or Docker (SQL Server container)
-- Optional: Visual Studio 2022/2023 or VS Code
+Tech Stack
+- .NET SDK: 8.0 (recommended)
+- ASP.NET Core MVC
+- Entity Framework Core 8.0.10 (EF Core SqlServer, Tools, Design)
+- Microsoft SQL Server (or LocalDB)
+- AutoMapper 12.x
+- Razor views + Bootstrap 5
 
-If you don't have .NET 8, download it from: https://dotnet.microsoft.com/download
-
----
+Prerequisites
+- .NET 8 SDK — check with:
+  dotnet --version
+- SQL Server or LocalDB running locally
 
 ## Installation — step by step
 
@@ -381,3 +392,5 @@ If you'd like, I can also:
 - or open a PR with this updated README.
 
 ```
+- (Optional) Visual Studio 2022/2023 or VS Code
+
