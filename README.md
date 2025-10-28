@@ -370,11 +370,5 @@ QuizPortal/
 
 ---
 
-If you'd like, I can also:
-- add a sample `appsettings.Development.json` file to the repo,
-- add a `docker-compose.yml` in the repo root for quick setup,
-- or open a PR with this updated README.
 
-```
-- (Optional) Visual Studio 2022/2023 or VS Code
 
