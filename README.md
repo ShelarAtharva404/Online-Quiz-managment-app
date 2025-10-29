@@ -368,6 +368,16 @@ QuizPortal/
 - Contact: your-23amtics404@gmail.com
 - For academic / college project use
 
+  ## Screenshots
+
+Here are some screenshots of the application:
+
+### Professor Dashboard
+![Professor Dashboard](./screenshots/professor-dashboard.png)
+
+### Student Quiz Page
+![Student Quiz Page](./screenshots/student-quiz.png)
+
 ---
 
 
