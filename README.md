@@ -259,12 +259,7 @@ This prints build and toolchain details to help debug problems.
 - If seeding is present, the simplest way to ensure seeded accounts exist is to run the app after migrations:
 ```
 dotnet run
-```
-- Example seeded credentials (update if your seed differs):
-  - Admin / Professor:
-    - admin@example.com / Admin@123
-  - Student:
-    - student@example.com / Student@123
+``
 
 Always change seeded credentials before publishing or demoing publicly.
 
