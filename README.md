@@ -259,7 +259,7 @@ This prints build and toolchain details to help debug problems.
 - If seeding is present, the simplest way to ensure seeded accounts exist is to run the app after migrations:
 ```
 dotnet run
-``
+```
 
 Always change seeded credentials before publishing or demoing publicly.
 
