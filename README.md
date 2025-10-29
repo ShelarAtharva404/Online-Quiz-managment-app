@@ -373,7 +373,7 @@ QuizPortal/
 Here are some screenshots of the application:
 
 ### Professor Dashboard
-![Professor Dashboard](./screenshots/professor-dashboard.png)
+![Professor Dashboard](Screenshot 2025-10-28 191917.png)
 
 ### Student Quiz Page
 ![Student Quiz Page](./screenshots/student-quiz.png)
